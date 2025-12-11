@@ -13,8 +13,9 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.75rem;
+  /* mobile-first: single column by default */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
 }
 
 .card {
@@ -125,20 +126,27 @@
   white-space: nowrap;
 }
 
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
+/*
+  Responsive layout
+  - Mobile (default): 1 column
+  - Small tablets:    2 columns
+  - Large tablets:    3 columns
+  - Desktops:         4 columns
+*/
+@media (min-width: 40rem) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 640px) {
+@media (min-width: 56rem) {
   .grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 75rem) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
