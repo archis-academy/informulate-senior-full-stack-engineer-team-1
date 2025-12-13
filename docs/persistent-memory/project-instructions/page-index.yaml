@@ -1,0 +1,70 @@
+- id: overview
+  title: Project Overview & Structure
+  path: docs/persistent-memory/project-instructions/overview.md
+  summary: High-level purpose, stack, and modular layout for frontend/backend.
+  tags: [overview, structure]
+  updated: 2025-12-11
+
+- id: frontend
+  title: Frontend Architecture
+  path: docs/persistent-memory/project-instructions/frontend.md
+  summary: React/TypeScript layout; hooks/modules/components/lib; data access patterns.
+  tags: [frontend, react, typescript]
+  updated: 2025-12-11
+
+- id: backend
+  title: Backend Architecture
+  path: docs/persistent-memory/project-instructions/backend.md
+  summary: Express/TypeScript layers; auth/security; models/routes/middleware.
+  tags: [backend, express, typescript]
+  updated: 2025-12-11
+
+- id: ai-integration
+  title: AI Integration
+  path: docs/persistent-memory/project-instructions/ai-integration.md
+  summary: AI service wrapper; RAG; embeddings; caching; error handling.
+  tags: [ai, integration, rag]
+  updated: 2025-12-11
+
+- id: data-flow
+  title: API & Frontend Data Flow
+  path: docs/persistent-memory/project-instructions/data-flow.md
+  summary: API/frontend fetch via React Query; validation; pagination.
+  tags: [api, data-flow, react-query]
+  updated: 2025-12-11
+
+- id: content-management
+  title: Course Content Management
+  path: docs/persistent-memory/project-instructions/content-management.md
+  summary: Lecture ingestion, chunking, summaries/exercises via AI.
+  tags: [content, management, ai]
+  updated: 2025-12-11
+
+- id: payments-enrollment
+  title: Payments & Enrollment
+  path: docs/persistent-memory/project-instructions/payments-enrollment.md
+  summary: Stripe integration; webhooks; transactional integrity.
+  tags: [payments, enrollment, stripe]
+  updated: 2025-12-11
+
+- id: testing-quality
+  title: Testing & Quality
+  path: docs/persistent-memory/project-instructions/testing-quality.md
+  summary: Jest; mocking AI; auth/CRUD/AI/payment tests; 80% coverage target.
+  tags: [testing, quality, jest]
+  updated: 2025-12-11
+
+- id: deployment-monitoring
+  title: Deployment & Monitoring
+  path: docs/persistent-memory/project-instructions/deployment-monitoring.md
+  summary: Docker; health checks; logging/monitoring; CI/CD.
+  tags: [deployment, monitoring, docker]
+  updated: 2025-12-11
+
+- id: code-quality
+  title: Code Quality Expectations
+  path: docs/persistent-memory/project-instructions/code-quality.md
+  summary: Clean code; modular design; code hygiene; component reuse; readability and performance.
+  tags: [code-quality, standards, best-practices]
+  updated: 2025-12-12
+
