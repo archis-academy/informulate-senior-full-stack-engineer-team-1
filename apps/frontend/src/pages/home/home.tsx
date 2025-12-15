@@ -4,8 +4,7 @@ import BestSellingCourses from "@components/best-selling-courses/best-selling-co
 function Home() {
   return (
     <>
-      <BestSellingCourses />
-      
+      <BestSellingCourses />   
     </>
   );
 }
