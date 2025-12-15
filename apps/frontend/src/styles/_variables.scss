@@ -8,6 +8,26 @@
 $white: #ffffff;
 $black: #000000;
 
+$slate-50: #f8fafc;
+$slate-200: #e2e8f0;
+$slate-300: #cbd5e1;
+$slate-500: #64748b;
+$slate-900: #0f172a;
+
+$indigo-100: #eef2ff;
+$indigo-600: #4f46e5;
+
+$red-500: #ef4444;
+$amber-400: #fbbf24;
+
+$radius-pill: 999px;
+
+$shadow-card: 0 6px 20px rgba(0, 0, 0, 0.06);
+$shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
+
+$border-1: 1px;
+$ratio-62: 62%;
+
 /*
  * Typography and font sizes
  *
@@ -20,8 +40,20 @@ $primary-font: "Inter", sans-serif;
 //font-sizes
 $font-base: pxToRem(16);
 
+$font-2xl: pxToRem(32);
+$font-base-1rem: pxToRem(16);
+$font-sm: pxToRem(12.8);
+$font-xs: pxToRem(11.2);
+
+$line-height-145: 1.45;
+$size-2-9em: 2.9em;
+$letter-spacing-006em: 0.06em;
+
 //font-weight
 $font-regular: 400;
+
+$font-semibold: 600;
+$font-bold: 700;
 
 /*
  * Screen Breakpoints
@@ -36,5 +68,29 @@ $tablet-l: pxToRem(992);
 $tablet-m: pxToRem(768);
 $tablet-s: pxToRem(640);
 $mobile-l: pxToRem(576);
-$mobile-m: pxTotRem(480);
+$mobile-m: pxToRem(480);
 $mobile-s: pxToRem(320);
+
+$space-48: pxToRem(48);
+$space-24: pxToRem(24);
+$space-64: pxToRem(64);
+$space-32: pxToRem(32);
+$space-28: pxToRem(28);
+$space-20: pxToRem(20);
+$space-8: pxToRem(8);
+$space-6: pxToRem(6);
+$space-4: pxToRem(4);
+$space-12: pxToRem(12);
+$space-18: pxToRem(18);
+
+$badge-pad-y: 0.22rem;
+$badge-pad-x: 0.55rem;
+
+$radius-none: 0;
+
+$duration-280: 0.28s;
+$duration-400: 0.4s;
+
+$scale-105: 1.05;
+
+$shift-up-6: pxToRem(-6);

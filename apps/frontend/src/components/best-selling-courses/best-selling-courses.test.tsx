@@ -7,7 +7,7 @@ import type { BestSellingCourse } from "@/types/course";
 
 const mockCourse: BestSellingCourse = {
   id: "1",
-  title: "Test Course Title",
+  description: "Test Course Description",
   category: "Development",
   price: "$99",
   rating: 4.5,
@@ -44,7 +44,7 @@ describe("BestSellingCourses", () => {
 });
 
 describe("CourseCard", () => {
-  it("renders course title", () => {
+  it("renders course description", () => {
     render(
       <MemoryRouter>
         <CourseCard course={mockCourse} />
@@ -52,7 +52,7 @@ describe("CourseCard", () => {
     );
 
     expect(
-      screen.getByRole("heading", { name: mockCourse.title })
+      screen.getByRole("heading", { name: mockCourse.description })
     ).toBeInTheDocument();
   });
 
@@ -103,7 +103,7 @@ describe("CourseCard", () => {
       </MemoryRouter>
     );
 
-    const img = screen.getByRole("img", { name: mockCourse.title });
+    const img = screen.getByRole("img", { name: mockCourse.description });
     expect(img).toBeInTheDocument();
     expect(img).toHaveAttribute("src", mockCourse.imageUrl);
   });
@@ -115,7 +115,7 @@ describe("CourseCard", () => {
       </MemoryRouter>
     );
 
-    const link = screen.getByRole("link", { name: mockCourse.title });
+    const link = screen.getByRole("link", { name: mockCourse.description });
     expect(link).toHaveAttribute("href", mockCourse.href);
   });
 });

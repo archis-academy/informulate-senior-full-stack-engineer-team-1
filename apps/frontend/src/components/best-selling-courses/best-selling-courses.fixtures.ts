@@ -3,7 +3,7 @@ import type { BestSellingCourse } from "@/types/course";
 export const bestSellingCoursesMock: BestSellingCourse[] = [
   {
     id: "1",
-    title: "Machine Learning A-Z™: Hands-On Python & R in Data Science",
+    description: "Machine Learning A-Z™: Hands-On Python & R in Data Science",
     category: "Design",
     price: "$57",
     rating: 5.0,
@@ -14,7 +14,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "2",
-    title: "The Complete 2021 Web Development Bootcamp",
+    description: "The Complete 2021 Web Development Bootcamp",
     category: "Development",
     price: "$57",
     rating: 5.0,
@@ -25,7 +25,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "3",
-    title: "Learn Python Programming Masterclass",
+    description: "Learn Python Programming Masterclass",
     category: "Business",
     price: "$57",
     rating: 5.0,
@@ -36,7 +36,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "4",
-    title: "The Complete Digital Marketing Course - 12 Courses in 1",
+    description: "The Complete Digital Marketing Course - 12 Courses in 1",
     category: "Marketing",
     price: "$57",
     rating: 5.0,
@@ -47,7 +47,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "5",
-    title: "Reiki Level I, II and Master/Teacher Program",
+    description: "Reiki Level I, II and Master/Teacher Program",
     category: "IT & Software",
     price: "$57",
     rating: 5.0,
@@ -58,7 +58,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "6",
-    title: "The Complete Foundation Stock Trading Course",
+    description: "The Complete Foundation Stock Trading Course",
     category: "Music",
     price: "$57",
     rating: 5.0,
@@ -69,7 +69,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "7",
-    title: "Beginner to Pro in Excel: Financial Modeling and Valuation",
+    description: "Beginner to Pro in Excel: Financial Modeling and Valuation",
     category: "Marketing",
     price: "$57",
     rating: 5.0,
@@ -80,7 +80,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "8",
-    title: "The Python Mega Course: Build 10 Real World Applications",
+    description: "The Python Mega Course: Build 10 Real World Applications",
     category: "Health & Fitness",
     price: "$57",
     rating: 5.0,
@@ -91,7 +91,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "9",
-    title: "Copywriting - Become a Freelance Copywriter, your own boss",
+    description: "Copywriting - Become a Freelance Copywriter, your own boss",
     category: "Design",
     price: "$57",
     rating: 5.0,
@@ -102,7 +102,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "10",
-    title: "Google Analytics Certification - Learn How To Pass The Exam",
+    description: "Google Analytics Certification - Learn How To Pass The Exam",
     category: "Lifestyle",
     price: "$57",
     rating: 5.0,
@@ -113,7 +113,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "11",
-    title: "Advanced Python Programming Projects",
+    description: "Advanced Python Programming Projects",
     category: "Development",
     price: "$57",
     rating: 5.0,
@@ -124,7 +124,7 @@ export const bestSellingCoursesMock: BestSellingCourse[] = [
   },
   {
     id: "12",
-    title: "Full-Stack Web Development with React and Node",
+    description: "Full-Stack Web Development with React and Node",
     category: "Development",
     price: "$57",
     rating: 5.0,

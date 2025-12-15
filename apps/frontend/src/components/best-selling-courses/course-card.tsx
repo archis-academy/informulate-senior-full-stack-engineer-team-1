@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import styles from "./best-selling-courses.module.scss";
 import type { BestSellingCourse } from "@/types/course";
 
@@ -14,10 +14,14 @@ function CourseCard({ course }: CourseCardProps) {
       <Link
         to={course.href}
         className={styles.cardLink}
-        aria-label={course.title}
+        aria-label={course.description} // label for screen readers
       >
         <div className={styles.imageWrapper}>
-          <img src={course.imageUrl} alt={course.title} loading="lazy" />
+          <img
+            src={course.imageUrl}
+            alt={course.description} // alt text for screen readers
+            loading="lazy"
+          />
         </div>
 
         <div className={styles.cardBody}>
@@ -26,7 +30,10 @@ function CourseCard({ course }: CourseCardProps) {
             <span className={styles.price}>{course.price}</span>
           </div>
 
-          <h3 className={styles.courseTitle}>{course.title}</h3>
+          {/* Use a heading for accessibility */}
+          <h3 className={styles.courseTitle}>{course.description}</h3>
+
+          <div className={styles.divider} aria-hidden="true" />
 
           <div
             className={styles.metaRow}
@@ -35,7 +42,9 @@ function CourseCard({ course }: CourseCardProps) {
             <span className={styles.ratingStar} aria-hidden="true">
               ★
             </span>
-            <span className={styles.ratingValue}>{course.rating.toFixed(1)}</span>
+            <span className={styles.ratingValue}>
+              {course.rating.toFixed(1)}
+            </span>
             <span className={styles.dot} aria-hidden="true">
               <span />
             </span>
