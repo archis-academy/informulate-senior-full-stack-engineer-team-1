@@ -39,4 +39,5 @@ yarn-error.log*
 
 # Documentation directories - ignore all files except .gitkeep
 docs/working-memory/**
+!docs/working-memory/.gitkeep
 !docs/working-memory/**/.gitkeep
