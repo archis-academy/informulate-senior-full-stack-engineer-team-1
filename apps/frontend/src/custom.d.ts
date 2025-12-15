@@ -4,6 +4,12 @@ declare module '*.module.scss' {
 	export default classes;
 }
 
+declare module '*.module.css' {
+	// CSS Modules typing for .module.css files
+	const classes: { [key: string]: string };
+	export default classes;
+}
+
 declare module '*.scss' {
 	// for plain scss imports (if any)
 	const content: { [key: string]: string } | string;
