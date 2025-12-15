@@ -33,6 +33,8 @@ function CourseCard({ course }: CourseCardProps) {
           {/* Use a heading for accessibility */}
           <h3 className={styles.courseTitle}>{course.description}</h3>
 
+          <div className={styles.divider} aria-hidden="true" />
+
           <div
             className={styles.metaRow}
             aria-label={`${ratingLabel}, ${course.students}`}
