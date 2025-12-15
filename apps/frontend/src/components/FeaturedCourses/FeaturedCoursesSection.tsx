@@ -1,6 +1,5 @@
 // src/components/FeaturedCourses/FeaturedCoursesSection.tsx
 
-import React from "react";
 import styles from "./FeaturedCoursesSection.module.css";
 import { CourseCard } from "./CourseCard";
 import { featuredCoursesMock, type FeaturedCourse } from "./FeaturedCourses.mock";
@@ -9,12 +8,14 @@ type Props = {
   courses?: FeaturedCourse[];
   title?: string;
   description?: string;
+  maxCourses?: number;
 };
 
 export function FeaturedCoursesSection({
   courses = featuredCoursesMock,
   title = "Our Featured Courses",
   description = "Vestibulum sed dolor sed diam mollis maximus vel nec dolor. Donec varius purus et eleifend porta.",
+  maxCourses = 4,
 }: Props) {
   return (
     <section className={styles.section} aria-labelledby="featured-courses-title">
@@ -27,7 +28,7 @@ export function FeaturedCoursesSection({
         </header>
 
         <ul className={styles.grid} aria-label="Featured courses">
-          {courses.slice(0, 4).map((c) => (
+          {courses.slice(0, maxCourses).map((c) => (
             <li key={c.id} className={styles.gridItem}>
               <CourseCard course={c} />
             </li>

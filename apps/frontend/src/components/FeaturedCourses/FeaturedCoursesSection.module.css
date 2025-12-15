@@ -74,7 +74,7 @@
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 34rem), 32rem));
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
     gap: var(--fc-grid-gap);
     justify-content: center;
     justify-items: stretch;
