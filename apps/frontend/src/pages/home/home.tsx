@@ -1,7 +1,11 @@
-import Welcome from "@components/welcome/welcome";
+import { FeaturedCoursesSection } from "@components/FeaturedCourses";
 
 function Home() {
-  return <Welcome />;
+  return( 
+    <div style={{ padding: 24, background: "#f8fafc", minHeight: "100vh" }}>
+      <FeaturedCoursesSection />
+    </div>
+    );
 }
 
 export default Home;
