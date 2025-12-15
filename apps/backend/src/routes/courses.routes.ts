@@ -6,13 +6,14 @@ import {
   getCourses,
   updateCourse,
 } from '@/controllers/coursesController';
+import { validateCourseIdMiddleware } from '@/middleware/courses/validateCourseId';
 
 const router = Router();
 
 router.get('/', getCourses);
-router.get('/:id', getCourseById);
+router.get('/:id', validateCourseIdMiddleware, getCourseById);
 router.post('/', createCourse);
-router.put('/:id', updateCourse);
-router.delete('/:id', deleteCourse);
+router.put('/:id', validateCourseIdMiddleware, updateCourse);
+router.delete('/:id', validateCourseIdMiddleware, deleteCourse);
 
 export default router;

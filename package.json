@@ -7,7 +7,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "docs:sync-index": "node scripts/sync-persistent-docs.js"
+    "docs:sync-index": "node scripts/sync-persistent-docs.js",
+    "clean:node-modules": "node scripts/clean-node-modules.js"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",

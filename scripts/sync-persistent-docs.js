@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Sync script for persistent documentation pages.
+ * Sync script for persistent memory page indexed project instructions
  *
  * Responsibilities:
  * 1) Parse page-index.yaml; validate unique ids, paths, and filenames.

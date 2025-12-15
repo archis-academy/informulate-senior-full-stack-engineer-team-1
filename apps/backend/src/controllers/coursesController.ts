@@ -1,9 +1,9 @@
 import type { Request, Response } from 'express';
 import type { ParamsDictionary } from 'express-serve-static-core';
-import type { ApiItemResponse, ApiListResponse, ApiErrorResponse } from '@/types/api';
+import type { ParsedQs } from 'qs';
+import type { CourseLocals } from '@/middleware/courses/validateCourseId';
+import type { ApiItemResponse, ApiListResponse } from '@/types/api';
 import type { Course, NewCourseInput, UpdateCourseInput } from '@/types/course';
-import { ValidationError } from '@/utils/validation';
-import { validateCourseId } from '@/validation/courses';
 
 export const getCourses = (
   _req: Request,
@@ -33,45 +33,22 @@ export const getCourses = (
 };
 
 export const getCourseById = (
-  req: Request<{ id: string }>,
-  res: Response<ApiItemResponse<Course> | ApiErrorResponse>
+  _req: Request<{ id: string }>,
+  res: Response<ApiItemResponse<Course>, CourseLocals>
 ) => {
-  try {
-    const { id } = req.params;
-    // TODO: use zod for validation
-    const courseId = validateCourseId(id);
-    
-    res.status(200).json({
-      message: `Course with ID ${id} retrieved successfully`,
-      data: {
-        id: courseId,
-        title: 'Introduction to Programming',
-        description: 'Learn the basics of programming',
-        instructor: 'John Doe',
-        duration: '8 weeks',
-        createdAt: new Date().toISOString(),
-      },
-    });
-  } catch (error) {
-    if (error instanceof ValidationError) {
-      return res.status(400).json({
-        errors: [
-          {
-            status: "400",
-            detail: error.message
-          }
-        ]
-      });
-    }
-    return res.status(500).json({
-      errors: [
-        {
-          status: "500",
-          detail: "Internal server error"
-        }
-      ]
-    });
-  }
+  const courseId = res.locals.courseId;
+  
+  res.status(200).json({
+    message: `Course with ID ${courseId} retrieved successfully`,
+    data: {
+      id: courseId,
+      title: 'Introduction to Programming',
+      description: 'Learn the basics of programming',
+      instructor: 'John Doe',
+      duration: '8 weeks',
+      createdAt: new Date().toISOString(),
+    },
+  });
 };
 
 export const createCourse = (
@@ -90,87 +67,53 @@ export const createCourse = (
 };
 
 export const updateCourse = (
-  req: Request<{ id: string }, ApiItemResponse<Course>, UpdateCourseInput>,
-  res: Response<ApiItemResponse<Course> | ApiErrorResponse>
+  req: Request<
+    { id: string },
+    ApiItemResponse<Course>,
+    UpdateCourseInput,
+    ParsedQs,
+    CourseLocals
+  >,
+  res: Response<ApiItemResponse<Course>, CourseLocals>
 ) => {
-  try {
-    // TODO: use zod for validation
-    const { id } = req.params;
-    const courseId = validateCourseId(id);
-    const courseData = req.body;
+  const courseId = res.locals.courseId;
+  const courseData = req.body;
 
-    // Mock existing course data. Only here to satistify type requirements temporarily until the real implementation is added.
-    const existingCourse: Course = {
+  // Mock existing course data. Only here to satistify type requirements temporarily until the real implementation is added.
+  const existingCourse: Course = {
+    id: courseId,
+    title: 'Introduction to Programming',
+    description: 'Learn the basics of programming',
+    instructor: 'John Doe',
+    duration: '8 weeks',
+    createdAt: new Date().toISOString(),
+  };
+
+  res.status(200).json({
+    message: `Course with ID ${courseId} updated successfully`,
+    data: {
+      ...existingCourse,
+      ...courseData,
       id: courseId,
-      title: 'Introduction to Programming',
-      description: 'Learn the basics of programming',
-      instructor: 'John Doe',
-      duration: '8 weeks',
-      createdAt: new Date().toISOString(),
-    };
-
-    res.status(200).json({
-      message: `Course with ID ${id} updated successfully`,
-      data: {
-        ...existingCourse,
-        ...courseData,
-        id: courseId,
-        updatedAt: new Date().toISOString(),
-      },
-    });
-  } catch (error) {
-    if (error instanceof ValidationError) {
-      return res.status(400).json({
-        errors: [
-          {
-            status: "400",
-            detail: error.message
-          }
-        ]
-      });
-    }
-    return res.status(500).json({
-      errors: [
-        {
-          status: "500",
-          detail: "Internal server error"
-        }
-      ]
-    });
-  }
+      updatedAt: new Date().toISOString(),
+    },
+  });
 };
 
 export const deleteCourse = (
-  req: Request<{ id: string }>,
-  res: Response<{ message: string; deleted: boolean } | ApiErrorResponse>
+  _req: Request<
+    { id: string },
+    { message: string; deleted: boolean },
+    undefined,
+    ParsedQs,
+    CourseLocals
+  >,
+  res: Response<{ message: string; deleted: boolean }, CourseLocals>
 ) => {
-  try {
-    // TODO: use zod for validation
-    const { id } = req.params;
-    validateCourseId(id);
-    
-    res.status(200).json({
-      message: `Course with ID ${id} deleted successfully`,
-      deleted: true,
-    });
-  } catch (error) {
-    if (error instanceof ValidationError) {
-      return res.status(400).json({
-        errors: [
-          {
-            status: "400",
-            detail: error.message
-          }
-        ]
-      });
-    }
-    return res.status(500).json({
-      errors: [
-        {
-          status: "500",
-          detail: "Internal server error"
-        }
-      ]
-    });
-  }
+  const courseId = res.locals.courseId;
+  
+  res.status(200).json({
+    message: `Course with ID ${courseId} deleted successfully`,
+    deleted: true,
+  });
 };
