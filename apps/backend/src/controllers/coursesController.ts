@@ -63,6 +63,14 @@ export const getCourseById = (
         ]
       });
     }
+    return res.status(500).json({
+      errors: [
+        {
+          status: "500",
+          detail: "Internal server error"
+        }
+      ]
+    });
   }
 };
 
@@ -121,16 +129,48 @@ export const updateCourse = (
         ]
       });
     }
+    return res.status(500).json({
+      errors: [
+        {
+          status: "500",
+          detail: "Internal server error"
+        }
+      ]
+    });
   }
 };
 
 export const deleteCourse = (
   req: Request<{ id: string }>,
-  res: Response<{ message: string; deleted: boolean }>
+  res: Response<{ message: string; deleted: boolean } | ApiErrorResponse>
 ) => {
-  const { id } = req.params;
-  res.status(200).json({
-    message: `Course with ID ${id} deleted successfully`,
-    deleted: true,
-  });
+  try {
+    // TODO: use zod for validation
+    const { id } = req.params;
+    validateCourseId(id);
+    
+    res.status(200).json({
+      message: `Course with ID ${id} deleted successfully`,
+      deleted: true,
+    });
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      return res.status(400).json({
+        errors: [
+          {
+            status: "400",
+            detail: error.message
+          }
+        ]
+      });
+    }
+    return res.status(500).json({
+      errors: [
+        {
+          status: "500",
+          detail: "Internal server error"
+        }
+      ]
+    });
+  }
 };
