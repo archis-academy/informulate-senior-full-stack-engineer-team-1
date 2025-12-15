@@ -1,6 +1,6 @@
 export type BestSellingCourse = {
   id: string;
-  title: string;
+  description: string; 
   category: string;
   price: string;
   rating: number;
