@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import styles from "./best-selling-courses.module.scss";
 import type { BestSellingCourse } from "@/types/course";
 
