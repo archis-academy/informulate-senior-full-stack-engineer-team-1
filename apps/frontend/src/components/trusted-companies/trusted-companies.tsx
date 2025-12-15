@@ -20,7 +20,11 @@ function TrustedCompanies() {
       <div className={styles.logosGrid} aria-label="Trusted company logos">
         {trustedCompanyLogos.map((logo) => (
           <div key={logo.id} className={styles.logoCard}>
-            <span className={styles.logoText}>{logo.name}</span>
+            <img
+              src={logo.imageUrl}
+              alt={logo.alt}
+              className={styles.logoImage}
+            />
           </div>
         ))}
       </div>
