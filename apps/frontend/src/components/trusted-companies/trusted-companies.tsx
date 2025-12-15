@@ -21,7 +21,11 @@ function TrustedCompanies({ title, description, logos }: TrustedCompaniesProps) 
       <div className={styles.logosGrid} aria-label="Trusted company logos">
         {logos.map((logo) => (
           <div key={logo.id} className={styles.logoCard}>
-            <img src={logo.imageUrl} alt={logo.alt} className={styles.logoImage} />
+            <img
+              src={logo.imageUrl}
+              alt={logo.alt}
+              className={styles.logoImage}
+            />
           </div>
         ))}
       </div>
