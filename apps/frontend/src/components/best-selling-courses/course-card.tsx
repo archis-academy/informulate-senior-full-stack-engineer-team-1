@@ -14,12 +14,12 @@ function CourseCard({ course }: CourseCardProps) {
       <Link
         to={course.href}
         className={styles.cardLink}
-        aria-label={course.description} // using description as label
+        aria-label={course.description} // label for screen readers
       >
         <div className={styles.imageWrapper}>
           <img
             src={course.imageUrl}
-            alt={course.description} // using description for alt
+            alt={course.description} // alt text for screen readers
             loading="lazy"
           />
         </div>
@@ -30,8 +30,8 @@ function CourseCard({ course }: CourseCardProps) {
             <span className={styles.price}>{course.price}</span>
           </div>
 
-          {/* Description only */}
-          <p className={styles.description}>{course.description}</p>
+          {/* Use a heading for accessibility */}
+          <h3 className={styles.courseTitle}>{course.description}</h3>
 
           <div
             className={styles.metaRow}
