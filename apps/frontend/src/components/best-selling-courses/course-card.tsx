@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./best-selling-courses.module.scss";
-import type { BestSellingCourse } from "@/types/course";
+import type { Course } from "@/types/course";
 
 export type CourseCardProps = {
-  course: BestSellingCourse;
+  course: Course;
 };
 
 function CourseCard({ course }: CourseCardProps) {

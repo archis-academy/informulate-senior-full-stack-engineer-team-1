@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { MemoryRouter } from "react-router";
+import { MemoryRouter } from "react-router-dom";
 import BestSellingCourses from "./best-selling-courses";
 import CourseCard from "./course-card";
-import type { BestSellingCourse } from "@/types/course";
+import type { Course } from "@/types/course";
 
-const mockCourse: BestSellingCourse = {
+const mockCourse: Course = {
   id: "1",
   description: "Test Course Description",
   category: "Development",

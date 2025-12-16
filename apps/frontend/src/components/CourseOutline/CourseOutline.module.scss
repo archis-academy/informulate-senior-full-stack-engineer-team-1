@@ -1,0 +1,39 @@
+@use "@styles/_variables.scss" as *;
+
+.section {
+  max-width: $desktop-m;
+  margin: 0 auto;
+  padding: $space-48 $space-24 $space-64;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-28;
+}
+
+.gridItem {
+  margin: 0;
+  min-width: 0;
+}
+
+@media (min-width: $tablet-s) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $tablet-m) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $desktop-s) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
