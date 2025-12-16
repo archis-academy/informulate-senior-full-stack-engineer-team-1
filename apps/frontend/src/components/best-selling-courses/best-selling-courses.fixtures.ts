@@ -1,6 +1,6 @@
-import type { BestSellingCourse } from "@/types/course";
+import type { Course } from "@/types/course";
 
-export const bestSellingCoursesMock: BestSellingCourse[] = [
+export const bestSellingCoursesMock: Course[] = [
   {
     id: "1",
     description: "Machine Learning A-Z™: Hands-On Python & R in Data Science",

@@ -1,6 +1,6 @@
-export type BestSellingCourse = {
+export type Course = {
   id: string;
-  description: string; 
+  description: string;
   category: string;
   price: string;
   rating: number;
@@ -8,3 +8,5 @@ export type BestSellingCourse = {
   imageUrl: string;
   href: string;
 };
+
+export type BestSellingCourse = Course;
