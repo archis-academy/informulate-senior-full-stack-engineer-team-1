@@ -1,24 +1,25 @@
 import styles from "./trusted-companies.module.scss";
-import { trustedCompanyLogos } from "./trusted-companies.fixtures";
+import type { TrustedCompany } from "./trusted-companies.fixtures";
+import React from "react";
 
-function TrustedCompanies() {
+interface TrustedCompaniesProps {
+  title: string;
+  description: string;
+  logos: TrustedCompany[];
+}
+
+function TrustedCompanies({ title, description, logos }: TrustedCompaniesProps) {
   return (
-    <section
-      className={styles.section}
-      aria-labelledby="trusted-companies-heading"
-    >
+    <section className={styles.section} aria-labelledby="trusted-companies-heading">
       <div className={styles.content}>
         <h2 id="trusted-companies-heading" className={styles.title}>
-          6.3k trusted companies
+          {title}
         </h2>
-        <p className={styles.description}>
-          Nullam egestas tellus at enim ornare tristique. Class aptent taciti
-          sociosqu ad litora torquent per conubia nostra.
-        </p>
+        <p className={styles.description}>{description}</p>
       </div>
 
       <div className={styles.logosGrid} aria-label="Trusted company logos">
-        {trustedCompanyLogos.map((logo) => (
+        {logos.map((logo) => (
           <div key={logo.id} className={styles.logoCard}>
             <img
               src={logo.imageUrl}
