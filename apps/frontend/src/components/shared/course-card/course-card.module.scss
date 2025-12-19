@@ -1,0 +1,174 @@
+@use "@styles/primitives" as *;
+@use "@styles/tokens" as *;
+@use "@styles/components" as *;
+@use "@styles/mixins" as *;
+@use "@styles/mq-config" as mq;
+
+// =============================================================================
+// COURSE CARD - Shared Reusable Component
+// =============================================================================
+
+.card {
+  @include card;
+  flex: 0 0 $card-width;
+}
+
+.cardLink {
+  
+  position: relative;
+  outline: none;
+
+  // pseudo-element for the focus ring is here on purposeso we can control z-index
+  // and prevent it from being obscured by the image wrapper
+  &:focus-visible::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: $focus-ring-width solid $focus-ring-color;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: space("3-5"); // 14px
+  padding-bottom: space("3-5");
+  height: 100%;
+  text-decoration: none;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: $card-image-height;
+  overflow: hidden;
+  background-color: $bg-surface-muted;
+  @include image-hover-zoom(1.05);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    @include divider-inner;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.courseInfo {
+  display: flex;
+  flex-direction: column;
+  gap: space("2-5"); // 10px gap between category row and title
+  padding-inline: space("3-5"); // 14px horizontal padding
+}
+
+.categoryRow {
+  @include flex-between;
+}
+
+.category {
+  @include badge-base;
+  white-space: nowrap;
+
+  &.category-design {
+    @include badge-design;
+  }
+
+  &.category-development {
+    @include badge-development;
+  }
+
+  &.category-business {
+    @include badge-business;
+  }
+
+  &.category-it-software {
+    @include badge-software;
+  }
+
+  &.category-marketing {
+    @include badge-development;
+  }
+
+  // Fallback for any other category
+  &:not(.category-design):not(.category-development):not(.category-business):not(.category-it-software):not(.category-marketing) {
+    @include badge-neutral;
+  }
+}
+
+.price {
+  color: $text-brand;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-1-375;
+  white-space: nowrap;
+}
+
+.courseTitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-base; // 14px
+  font-weight: $font-weight-medium; // 500
+  letter-spacing: $letter-spacing-neg-00875;
+  line-height: $line-height-1-428;
+  color: $text-primary;
+  @include line-clamp(2);
+  margin: 0;
+  min-height: 2.5rem; // Space for 2 lines
+}
+
+.divider {
+  @include divider-inner;
+  height: 1px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: space("3-5"); // 14px horizontal padding
+}
+
+.ratingGroup {
+  display: flex;
+  align-items: center;
+  gap: space(1); // 4px
+}
+
+.ratingStar {
+  color: $icon-star;
+  font-size: $font-size-base; // 16px
+  line-height: $line-height-1-08;
+}
+
+.ratingValue {
+  color: $text-secondary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium; // 500
+}
+
+.studentGroup {
+  display: flex;
+  align-items: center;
+  gap: space(1); // 4px
+  font-size: $font-size-sm;
+}
+
+.studentsCount {
+  color: $text-secondary;
+  font-weight: $font-weight-medium; // 500
+  font-size: $font-size-base;
+  letter-spacing: $letter-spacing-neg-00875;
+}
+
+.studentsLabel {
+  color: $text-tertiary;
+  font-size: $font-size-base;
+  letter-spacing: $letter-spacing-neg-00875;
+}

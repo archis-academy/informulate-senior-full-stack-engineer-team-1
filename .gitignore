@@ -26,6 +26,7 @@ coverage
 out/
 build
 dist
+*.tsbuildinfo
 
 
 # Debug
@@ -36,3 +37,8 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# Documentation directories - ignore all files except .gitkeep
+docs/working-memory/**
+!docs/working-memory/.gitkeep
+!docs/working-memory/**/.gitkeep

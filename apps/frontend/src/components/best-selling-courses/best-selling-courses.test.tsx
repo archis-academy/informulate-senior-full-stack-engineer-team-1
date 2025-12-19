@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
 import { MemoryRouter } from "react-router";
-import BestSellingCourses from "./best-selling-courses";
-import CourseCard from "./course-card";
+import { describe, expect, it } from "vitest";
+import { CourseCard } from "@/components/shared/course-card";
 import type { BestSellingCourse } from "@/types/course";
+import BestSellingCourses from "./best-selling-courses";
 
 const mockCourse: BestSellingCourse = {
   id: "1",

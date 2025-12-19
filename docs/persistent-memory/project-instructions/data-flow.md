@@ -26,4 +26,3 @@ updated: '2025-12-11T00:00:00.000Z'
 - Implement paginated endpoints for courses, lectures, and reviews.
 - Ensure consistent pagination patterns across the application.
 
-

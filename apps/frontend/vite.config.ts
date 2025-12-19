@@ -4,6 +4,9 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
+  css: {
+    devSourcemap: true, // This enables sourcemaps during development
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

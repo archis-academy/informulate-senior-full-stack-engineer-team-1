@@ -1,4 +1,3 @@
-import Welcome from "@components/welcome/welcome";
 import BestSellingCourses from "@components/best-selling-courses/best-selling-courses";
 import { FeaturedCoursesSection } from "@components/FeaturedCourses";
 

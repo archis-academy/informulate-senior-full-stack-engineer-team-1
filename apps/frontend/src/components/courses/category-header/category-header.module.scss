@@ -1,0 +1,84 @@
+@use "@styles/primitives" as *;
+@use "@styles/tokens" as *;
+@use "@styles/components" as *;
+@use "@styles/mixins" as *;
+@use "@styles/mq-config" as mq;
+@use "@styles/_functions.scss" as *;
+
+// =============================================================================
+// SECTION CONTAINER
+// =============================================================================
+
+.section {
+  width: 100%;
+  margin: 0 auto;
+  padding: space(25) 0 space(20); // 100px top, 24px horizontal
+  display: flex;
+  flex-direction: column;
+  gap: space(15); // 60px gap between title and content
+
+  @include mq.mq($until: "sm") {
+    padding-left: space(4);
+    padding-right: space(4);
+  }
+
+  @include mq.mq($from: "md") {
+    padding-left: space(8);
+    padding-right: space(8);
+  }
+
+  @include mq.mq($from: "lg") {
+    padding-left: space(12);
+    padding-right: space(12);
+  }
+
+  @include mq.mq($from: "xl") {
+    padding-left: space(15);
+    padding-right: space(15);
+  }
+}
+
+// =============================================================================
+// HEADING
+// =============================================================================
+
+.title {
+  @include heading(2);
+  text-align: center;
+  line-height: $line-height-tight-plus;
+  color: $text-primary;
+  margin: 0;
+}
+
+// =============================================================================
+// HORIZONTAL SCROLL CONTAINER
+// =============================================================================
+
+.scrollContainer {
+  display: flex;
+  gap: space("6-25"); // 25px between cards
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  margin: 0 auto;
+  width: 100%;
+  @include focus-ring;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    #000 0,
+    #000 calc(100% - #{space(10)}),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    #000 0,
+    #000 calc(100% - #{space(10)}),
+    transparent 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}

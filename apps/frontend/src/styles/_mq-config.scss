@@ -1,0 +1,48 @@
+// =============================================================================
+// SASS-MQ CONFIGURATION
+// =============================================================================
+// Wraps sass-mq with project breakpoints for consistent media queries
+//
+// Usage:
+//   @use "@styles/mq-config" as mq;
+//   .element {
+//     @include mq.mq($from: md) { ... }
+//     @include mq.mq($until: lg) { ... }
+//     @include mq.mq($from: sm, $until: xl) { ... }
+//   }
+// =============================================================================
+
+// Configure sass-mq with project breakpoints (pixel values)
+$mq-breakpoints: (
+  // Core breakpoints (Tailwind-aligned)
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "2xl": 1536px,
+  // Edge-case breakpoints
+  "mobile-xs": 320px,
+  "mobile-sm": 375px,
+  "mobile-md": 480px,
+  "mobile-lg": 576px,
+  "tablet-lg": 992px,
+  "desktop-lg": 1440px,
+  "desktop-xl": 1600px,
+  "desktop-xxl": 1920px,
+  // Legacy aliases (backward compatibility)
+  "tablet-sm": 640px,
+  "tablet-md": 768px,
+  "desktop-sm": 1024px,
+  "desktop-md": 1280px,
+);
+
+// Optional: Show active breakpoint in dev mode (set to empty list in production)
+$mq-show-breakpoints: ();
+// For development, uncomment:
+// $mq-show-breakpoints: (mobile-xs, sm, md, lg, xl, 2xl);
+
+// Forward sass-mq with our configuration
+@forward "sass-mq" with (
+  $breakpoints: $mq-breakpoints,
+  $show-breakpoints: $mq-show-breakpoints
+);

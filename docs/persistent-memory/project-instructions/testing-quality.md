@@ -24,4 +24,3 @@ updated: '2025-12-11T00:00:00.000Z'
 - Test authentication, CRUD operations, AI-generated content, and payment flows.
 - Ensure minimum 80% code coverage for critical backend services.
 
-

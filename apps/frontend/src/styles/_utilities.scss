@@ -1,0 +1,391 @@
+// =============================================================================
+// UTILITIES - Optional Helper Classes
+// =============================================================================
+// Minimal utility classes for rapid prototyping.
+// Use sparingly - prefer component-based styling.
+// =============================================================================
+
+@use "primitives" as *;
+@use "tokens" as *;
+
+// -----------------------------------------------------------------------------
+// TEXT COLORS
+// -----------------------------------------------------------------------------
+.text-primary {
+    color: $text-primary;
+}
+
+.text-secondary {
+    color: $text-secondary;
+}
+
+.text-tertiary {
+    color: $text-tertiary;
+}
+
+.text-muted {
+    color: $text-muted;
+}
+
+.text-brand {
+    color: $text-brand;
+}
+
+.text-inverse {
+    color: $text-inverse;
+}
+
+// -----------------------------------------------------------------------------
+// BACKGROUND COLORS
+// -----------------------------------------------------------------------------
+.bg-surface {
+    background-color: $bg-surface;
+}
+
+.bg-surface-muted {
+    background-color: $bg-surface-muted;
+}
+
+.bg-muted {
+    background-color: $bg-muted;
+}
+
+.bg-brand {
+    background-color: $interactive-primary;
+}
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY
+// -----------------------------------------------------------------------------
+.font-regular {
+    font-weight: $font-weight-regular;
+}
+
+.font-medium {
+    font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+    font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+    font-weight: $font-weight-bold;
+}
+
+.text-xs {
+    font-size: $font-size-xs;
+}
+
+.text-sm {
+    font-size: $font-size-sm;
+}
+
+.text-base {
+    font-size: $font-size-base;
+}
+
+.text-lg {
+    font-size: $font-size-lg;
+}
+
+.text-xl {
+    font-size: $font-size-xl;
+}
+
+.text-2xl {
+    font-size: $font-size-2xl;
+}
+
+.text-3xl {
+    font-size: $font-size-3xl;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+// -----------------------------------------------------------------------------
+// SPACING - Margin
+// -----------------------------------------------------------------------------
+.m-0 {
+    margin: space(0);
+}
+
+.mt-4 {
+    margin-top: space(1);
+}
+
+.mt-8 {
+    margin-top: space(2);
+}
+
+.mt-12 {
+    margin-top: space(3);
+}
+
+.mt-16 {
+    margin-top: space(4);
+}
+
+.mt-24 {
+    margin-top: space(6);
+}
+
+.mt-32 {
+    margin-top: space(8);
+}
+
+.mt-48 {
+    margin-top: space(12);
+}
+
+.mb-4 {
+    margin-bottom: space(1);
+}
+
+.mb-8 {
+    margin-bottom: space(2);
+}
+
+.mb-12 {
+    margin-bottom: space(3);
+}
+
+.mb-16 {
+    margin-bottom: space(4);
+}
+
+.mb-24 {
+    margin-bottom: space(6);
+}
+
+.mb-32 {
+    margin-bottom: space(8);
+}
+
+.mb-48 {
+    margin-bottom: space(12);
+}
+
+.mx-auto {
+    margin-inline: auto;
+}
+
+// -----------------------------------------------------------------------------
+// SPACING - Padding
+// -----------------------------------------------------------------------------
+.p-0 {
+    padding: space(0);
+}
+
+.p-4 {
+    padding: space(1);
+}
+
+.p-8 {
+    padding: space(2);
+}
+
+.p-12 {
+    padding: space(3);
+}
+
+.p-16 {
+    padding: space(4);
+}
+
+.p-24 {
+    padding: space(6);
+}
+
+.px-8 {
+    padding-inline: space(2);
+}
+
+.px-12 {
+    padding-inline: space(3);
+}
+
+.px-16 {
+    padding-inline: space(4);
+}
+
+.px-24 {
+    padding-inline: space(6);
+}
+
+.py-8 {
+    padding-block: space(2);
+}
+
+.py-12 {
+    padding-block: space(3);
+}
+
+.py-16 {
+    padding-block: space(4);
+}
+
+.py-24 {
+    padding-block: space(6);
+}
+
+// -----------------------------------------------------------------------------
+// GAP (for flex/grid)
+// -----------------------------------------------------------------------------
+.gap-4 {
+    gap: space(1);
+}
+
+.gap-8 {
+    gap: space(2);
+}
+
+.gap-12 {
+    gap: space(3);
+}
+
+.gap-16 {
+    gap: space(4);
+}
+
+.gap-24 {
+    gap: space(6);
+}
+
+.gap-32 {
+    gap: space(8);
+}
+
+// -----------------------------------------------------------------------------
+// LAYOUT
+// -----------------------------------------------------------------------------
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.grid {
+    display: grid;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+// -----------------------------------------------------------------------------
+// VISIBILITY
+// -----------------------------------------------------------------------------
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// -----------------------------------------------------------------------------
+// BORDERS
+// -----------------------------------------------------------------------------
+.rounded-none {
+    border-radius: $radius-none;
+}
+
+.rounded-sm {
+    border-radius: $radius-sm;
+}
+
+.rounded-md {
+    border-radius: $radius-md;
+}
+
+.rounded-lg {
+    border-radius: $radius-lg;
+}
+
+.rounded-full {
+    border-radius: $radius-full;
+}
+
+.border {
+    border: $border-width-default solid $border-default;
+}
+
+.border-strong {
+    border: $border-width-default solid $border-strong;
+}
+
+// -----------------------------------------------------------------------------
+// SHADOWS
+// -----------------------------------------------------------------------------
+.shadow-sm {
+    box-shadow: $elevation-sm;
+}
+
+.shadow-md {
+    box-shadow: $elevation-md;
+}
+
+.shadow-lg {
+    box-shadow: $elevation-lg;
+}

@@ -3568,6 +3568,11 @@ sass-embedded@^1.93.2:
     sass-embedded-win32-arm64 "1.96.0"
     sass-embedded-win32-x64 "1.96.0"
 
+sass-mq@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/sass-mq/-/sass-mq-7.0.0.tgz#9490c239f92f68857d674e1dfc1f367e839d4bc0"
+  integrity sha512-agZLg70uRebwCqE+ODyoeISxCS+8gOYunaGPASZn1vREqVYUbFgSfrGKLK+ZBxObZhJMaH3LSeYMetvl55sASQ==
+
 sass@1.96.0:
   version "1.96.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.96.0.tgz#dca45b6b08ae829500f448124afc7c15150bbb34"

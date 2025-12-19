@@ -1,0 +1,300 @@
+// =============================================================================
+// PRIMITIVES - Raw Design Tokens from Figma
+// =============================================================================
+// These are the foundational values extracted directly from the Figma design.
+// Never use these directly in components - use semantic tokens instead.
+// =============================================================================
+
+@use "sass:math";
+@use "sass:map";
+@use "functions" as *;
+
+// -----------------------------------------------------------------------------
+// COLORS - Primary Palette
+// -----------------------------------------------------------------------------
+// Main brand color (used for prices, CTAs, accents)
+$primary-100: #ffeee8;
+$primary-200: #ffddd1;
+$primary-500: #ff6636; // Main brand color
+$primary-700: #993d20;
+
+// -----------------------------------------------------------------------------
+// COLORS - Secondary Palette
+// -----------------------------------------------------------------------------
+$secondary-100: #ebebff;
+$secondary-500: #564ffd;
+$secondary-700: #342f98;
+
+// -----------------------------------------------------------------------------
+// COLORS - Gray Scale
+// -----------------------------------------------------------------------------
+$gray-white: #ffffff;
+$gray-50: #f5f7fa;
+$gray-100: #e9eaf0;
+$gray-300: #b7bac7;
+$gray-400: #a1a5b3;
+$gray-500: #8c94a3;
+$gray-700: #4e5566;
+$gray-800: #363b47;
+$gray-900: #1d2026;
+$gray-black: #202029;
+
+// -----------------------------------------------------------------------------
+// COLORS - Semantic Status
+// -----------------------------------------------------------------------------
+// Success (used for Business category badges)
+$success-100: #e1f7e3;
+$success-700: #15711f;
+
+// Error (used for IT & Software category badges)
+$error-100: #fff0f0;
+$error-700: #882929;
+
+// Warning
+$warning-500: #fd8e1f;
+
+// -----------------------------------------------------------------------------
+// COLORS - Shadows (with alpha)
+// -----------------------------------------------------------------------------
+$shadow-color-light: rgba(29, 32, 38, 0.1); // 10% opacity
+$shadow-color-primary: rgba(204, 82, 43, 0.5); // 50% opacity for button hovers
+
+// -----------------------------------------------------------------------------
+// SPACING - 4px Base Unit, Quarter-Step Scale
+// -----------------------------------------------------------------------------
+// Key format: hyphen represents decimal (e.g., 1-5 = 1.5 × 4px = 6px)
+// Allowed steps: whole or quarter multiples of 4px
+//
+// Calculation: key × 4px = pixel value
+// Example: 6-25 = 6.25 × 4px = 25px
+// -----------------------------------------------------------------------------
+
+$space: (
+    "0": 0, // 0px
+    "1": pxToRem(4), // 1 × 4px = 4px
+    "1-5": pxToRem(6), // 1.5 × 4px = 6px
+    "2": pxToRem(8), // 2 × 4px = 8px
+    "2-5": pxToRem(10), // 2.5 × 4px = 10px
+    "3": pxToRem(12), // 3 × 4px = 12px
+    "3-5": pxToRem(14), // 3.5 × 4px = 14px
+    "4": pxToRem(16), // 4 × 4px = 16px
+    "4-5": pxToRem(18), // 4.5 × 4px = 18px
+    "5": pxToRem(20), // 5 × 4px = 20px
+    "6": pxToRem(24), // 6 × 4px = 24px
+    "6-25": pxToRem(25), // 6.25 × 4px = 25px (Figma: course card row gap)
+    "7": pxToRem(28), // 7 × 4px = 28px
+    "8": pxToRem(32), // 8 × 4px = 32px
+    "9": pxToRem(36), // 9 × 4px = 36px
+    "10": pxToRem(40), // 10 × 4px = 40px
+    "12": pxToRem(48), // 12 × 4px = 48px
+    "14": pxToRem(56), // 14 × 4px = 56px
+    "15": pxToRem(60), // 15 × 4px = 60px
+    "16": pxToRem(64), // 16 × 4px = 64px
+    "20": pxToRem(80), // 20 × 4px = 80px
+    "25": pxToRem(100), // 25 × 4px = 100px
+);
+
+/// Get a spacing value from the scale
+/// @param {String} $key - The spacing key (e.g., "4", "6-25")
+/// @return {Length} The spacing value in rem
+/// @throws Error if key is not found
+@function space($key) {
+    $key-str: "#{$key}";
+
+    @if not map.has-key($space, $key-str) {
+        @error "Unknown spacing key `#{$key}`. Available keys: #{map.keys($space)}";
+    }
+
+    @return map.get($space, $key-str);
+}
+
+// -----------------------------------------------------------------------------
+// SPACING ALIASES - Semantic names for Figma values
+// -----------------------------------------------------------------------------
+$space-card-gap: space("3-5"); // 14px - internal card gaps
+$space-card-row: space("6-25"); // 25px - between course cards
+$space-section-gap: space(15); // 60px - between major sections
+$space-section-top: space(25); // 100px - section padding top
+$space-section-bottom: space(20); // 80px - section padding bottom
+$space-heading-gap: space(12); // 48px - section title to content
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY - Font Families
+// -----------------------------------------------------------------------------
+$font-family-primary: "Inter", sans-serif;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY - Font Sizes
+// -----------------------------------------------------------------------------
+$font-size-xs: pxToRem(10);
+$font-size-sm: pxToRem(12);
+$font-size-base: pxToRem(14);
+$font-size-md: pxToRem(16);
+$font-size-lg: pxToRem(18);
+$font-size-xl: pxToRem(20);
+$font-size-2xl: pxToRem(24);
+$font-size-3xl: pxToRem(32);
+$font-size-4xl: pxToRem(40);
+$font-size-5xl: pxToRem(48);
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY - Font Weights
+// -----------------------------------------------------------------------------
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY - Line Heights (Literal Mapping)
+// -----------------------------------------------------------------------------
+$line-height-1-08: 1.08;
+$line-height-1-2: 1.2;
+$line-height-1-25: 1.25;
+$line-height-1-333: 1.333;
+$line-height-1-375: 1.37;
+$line-height-1-428: 1.428;
+$line-height-1-571: 1.571;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY - Line Heights (Semantic Mapping)
+// -----------------------------------------------------------------------------
+$line-height-tight: $line-height-1-08;
+$line-height-tight-plus: $line-height-1-2;
+$line-height-snug: $line-height-1-25;
+$line-height-normal: $line-height-1-428;
+$line-height-relaxed: $line-height-1-571;
+$line-height-loose: $line-height-1-571;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY - Letter Spacing (Literal Mapping)
+// -----------------------------------------------------------------------------
+$letter-spacing-neg-06: -0.06rem;
+$letter-spacing-neg-02: -0.02rem;
+$letter-spacing-neg-025: -0.025rem;
+$letter-spacing-neg-00875: -0.00875rem;
+$letter-spacing-05: 0.05rem;
+$letter-spacing-neg-008: -0.008rem;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY - Letter Spacing (Semantic Mapping)
+// -----------------------------------------------------------------------------
+$letter-spacing-tight: $letter-spacing-neg-06;
+$letter-spacing-slightly-tight: $letter-spacing-neg-00875;
+$letter-spacing-normal: $letter-spacing-neg-00875;
+$letter-spacing-wide: $letter-spacing-05;
+
+// -----------------------------------------------------------------------------
+// BORDERS
+// -----------------------------------------------------------------------------
+$border-width-default: 1px;
+$border-width-thick: 2px;
+
+// -----------------------------------------------------------------------------
+// BORDER RADIUS
+// -----------------------------------------------------------------------------
+$radius-none: 0;
+$radius-sm: pxToRem(4);
+$radius-md: pxToRem(6);
+$radius-lg: pxToRem(8);
+$radius-xl: pxToRem(10);
+$radius-2xl: pxToRem(12);
+$radius-full: 999px;
+
+// -----------------------------------------------------------------------------
+// SHADOWS
+// -----------------------------------------------------------------------------
+$shadow-card: 0 6px 20px rgba(0, 0, 0, 0.06);
+$shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
+$shadow-category-hover: 0 12px 32px $shadow-color-light;
+$shadow-button-hover: 0 6px 20px $shadow-color-primary;
+$shadow-inner-line: inset 0 -1px 0 0 $gray-100;
+
+// -----------------------------------------------------------------------------
+// TRANSITIONS
+// -----------------------------------------------------------------------------
+$duration-fast: 0.15s;
+$duration-normal: 0.28s;
+$duration-slow: 0.4s;
+
+$easing-default: ease;
+$easing-in-out: ease-in-out;
+
+// -----------------------------------------------------------------------------
+// Z-INDEX
+// -----------------------------------------------------------------------------
+$z-index-dropdown: 100;
+$z-index-sticky: 200;
+$z-index-modal: 300;
+$z-index-tooltip: 400;
+
+// -----------------------------------------------------------------------------
+// LAYOUT
+// -----------------------------------------------------------------------------
+$container-max-width: pxToRem(1480);
+$container-margin: pxToRem(220);
+$viewport-full: pxToRem(1920);
+
+// Course card dimensions
+$card-width: pxToRem(244);
+$card-image-height: pxToRem(183);
+
+// Tools card dimensions
+$tools-card-width: pxToRem(200);
+$tools-card-height: pxToRem(94);
+
+// Two-column layout
+$layout-main-content: pxToRem(872);
+$layout-sidebar: pxToRem(424);
+$layout-gap: space(6); // 24px
+
+// Navigation
+$nav-height: pxToRem(148);
+
+// Icons
+$icon-size-sm: pxToRem(16);
+$icon-size-md: pxToRem(24);
+$icon-arrow-container-width: pxToRem(60);
+
+// =============================================================================
+// BREAKPOINTS - Core (Tailwind-inspired, use these most of the time)
+// =============================================================================
+// These are the standard breakpoints for responsive design. Use these in
+// 90% of responsive layouts. They align with Tailwind CSS conventions.
+// =============================================================================
+$bp-sm: pxToRem(640);    // Small tablets, large phones landscape
+$bp-md: pxToRem(768);    // Tablets
+$bp-lg: pxToRem(1024);   // Small desktops/laptops
+$bp-xl: pxToRem(1280);   // Standard desktops
+$bp-2xl: pxToRem(1536);  // Large desktops
+
+// Legacy aliases for core breakpoints (backward compatibility)
+$breakpoint-tablet-sm: $bp-sm;
+$breakpoint-tablet-md: $bp-md;
+$breakpoint-desktop-sm: $bp-lg;
+$breakpoint-desktop-md: $bp-xl;
+
+// =============================================================================
+// BREAKPOINTS - Edge Cases (fine-grained control, use sparingly)
+// =============================================================================
+// Use these only when precise control is needed for specific device sizes.
+// Most responsive designs should use the core breakpoints above.
+// =============================================================================
+$bp-mobile-xs: pxToRem(320);    // Very small phones
+$bp-mobile-sm: pxToRem(375);    // iPhone SE/mini
+$bp-mobile-md: pxToRem(480);    // Large phones
+$bp-mobile-lg: pxToRem(576);    // Phablets
+$bp-tablet-lg: pxToRem(992);    // Large tablets
+$bp-desktop-lg: pxToRem(1440);  // Wide monitors
+$bp-desktop-xl: pxToRem(1600);  // Ultra-wide
+$bp-desktop-xxl: pxToRem(1920); // Full HD
+
+// Legacy aliases for edge case breakpoints (backward compatibility)
+$breakpoint-mobile-xs: $bp-mobile-xs;
+$breakpoint-mobile-sm: $bp-mobile-sm;
+$breakpoint-mobile-md: $bp-mobile-md;
+$breakpoint-mobile-lg: $bp-mobile-lg;
+$breakpoint-tablet-lg: $bp-tablet-lg;
+$breakpoint-desktop-lg: $bp-desktop-lg;
+$breakpoint-desktop-xl: $bp-desktop-xl;
+$breakpoint-desktop-xxl: $bp-desktop-xxl;

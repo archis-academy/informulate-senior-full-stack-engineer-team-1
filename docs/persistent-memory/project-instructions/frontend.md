@@ -38,4 +38,3 @@ updated: '2025-12-11T00:00:00.000Z'
 - Validate all inputs on the frontend.
 - Implement paginated endpoints for courses, lectures, and reviews.
 
-

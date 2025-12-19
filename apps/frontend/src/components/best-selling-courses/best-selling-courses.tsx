@@ -1,6 +1,6 @@
-import styles from "./best-selling-courses.module.scss";
+import { CourseCard } from "@/components/shared/course-card";
 import { bestSellingCoursesMock } from "./best-selling-courses.fixtures";
-import CourseCard from "./course-card";
+import styles from "./best-selling-courses.module.scss";
 
 function BestSellingCourses() {
   return (

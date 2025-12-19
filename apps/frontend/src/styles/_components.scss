@@ -1,0 +1,170 @@
+// =============================================================================
+// COMPONENTS - Component-Level Design Tokens
+// =============================================================================
+// These tokens are specific to UI components and ensure consistent patterns.
+// =============================================================================
+
+@use "primitives" as *;
+@use "tokens" as *;
+
+// -----------------------------------------------------------------------------
+// CARD COMPONENT
+// -----------------------------------------------------------------------------
+$card-bg: $bg-surface;
+$card-border-color: $border-default;
+$card-border-width: $border-width-default;
+$card-border-radius: $radius-none; // Figma shows no radius on cards
+$card-padding: space("3-5"); // 14px
+$card-gap: space("3-5"); // 14px internal gap
+$card-info-gap: space("2-5"); // 10px between info elements
+$card-row-gap: space("6-25"); // 25px between cards in a row
+$card-width: $card-width;
+$card-image-height: $card-image-height;
+$card-shadow: $elevation-sm;
+$card-shadow-hover: $elevation-md;
+$card-hover-translate: pxToRem(-6);
+$card-transition: $transition-interactive;
+
+// -----------------------------------------------------------------------------
+// BADGE COMPONENT (Category badges)
+// -----------------------------------------------------------------------------
+$badge-padding-y: space("1-5"); // 6px
+$badge-padding-x: space(3); // 12px
+$badge-border-radius: $radius-full;
+$badge-font-size: $font-size-xs;
+$badge-font-weight: $label-font-weight;
+$badge-letter-spacing: $label-letter-spacing;
+$badge-text-transform: uppercase;
+
+// Badge variants - Design
+$badge-design-bg: $status-design-bg;
+$badge-design-text: $status-design-text;
+
+// Badge variants - Development/Marketing
+$badge-development-bg: $status-dev-bg;
+$badge-development-text: $status-dev-text;
+
+// Badge variants - Business
+$badge-business-bg: $status-success-bg;
+$badge-business-text: $status-success-text;
+
+// Badge variants - IT & Software
+$badge-software-bg: $status-error-bg;
+$badge-software-text: $status-error-text;
+
+// Badge variants - Neutral (keywords)
+$badge-neutral-bg: $bg-surface-muted;
+$badge-neutral-text: $text-secondary;
+
+// -----------------------------------------------------------------------------
+// BUTTON COMPONENT
+// -----------------------------------------------------------------------------
+$btn-padding-y: space(3); // 12px
+$btn-padding-x: space(6); // 24px
+$btn-border-radius: $radius-md;
+$btn-font-size: $font-size-lg;
+$btn-font-weight: $font-weight-semibold;
+$btn-transition: $transition-button;
+
+// Primary button
+$btn-primary-bg: $interactive-primary;
+$btn-primary-text: $text-inverse;
+$btn-primary-hover-bg: $interactive-primary-hover;
+$btn-primary-shadow-hover: $elevation-button;
+
+// Secondary button
+$btn-secondary-bg: transparent;
+$btn-secondary-text: $interactive-primary;
+$btn-secondary-border: $interactive-primary;
+$btn-secondary-hover-bg: $primary-100;
+
+// Ghost button
+$btn-ghost-bg: transparent;
+$btn-ghost-text: $text-secondary;
+$btn-ghost-hover-bg: $bg-surface-muted;
+
+// -----------------------------------------------------------------------------
+// INPUT COMPONENT
+// -----------------------------------------------------------------------------
+$input-padding-y: space(3); // 12px
+$input-padding-x: space(4); // 16px
+$input-border-radius: $radius-md;
+$input-border-color: $border-default;
+$input-border-width: $border-width-default;
+$input-bg: $bg-surface;
+$input-text: $text-primary;
+$input-placeholder: $text-muted;
+$input-focus-border: $focus-ring-color;
+$input-font-size: $font-size-lg;
+
+// -----------------------------------------------------------------------------
+// SECTION COMPONENT
+// -----------------------------------------------------------------------------
+$section-padding-top: $space-section-top; // 100px
+$section-padding-bottom: $space-section-bottom; // 80px
+$section-padding-x: pxToRem(300); // Horizontal margins (non-standard, Figma specific)
+$section-gap: $space-section-gap; // 60px between sections
+$section-heading-gap: $space-heading-gap; // 48px title to content
+
+// -----------------------------------------------------------------------------
+// NAVIGATION COMPONENT
+// -----------------------------------------------------------------------------
+$nav-height: $nav-height;
+$nav-bg: $bg-surface;
+$nav-border-color: $border-default;
+
+// -----------------------------------------------------------------------------
+// RATING COMPONENT
+// -----------------------------------------------------------------------------
+$rating-gap: space(1); // 4px between star and number
+$rating-star-size: $icon-size-sm; // 16px
+$rating-star-color: $icon-star;
+$rating-value-weight: $font-weight-bold;
+$rating-value-color: $text-secondary;
+$rating-count-color: $text-tertiary;
+
+// -----------------------------------------------------------------------------
+// AVATAR COMPONENT
+// -----------------------------------------------------------------------------
+$avatar-size-sm: pxToRem(22);
+$avatar-size-md: pxToRem(32);
+$avatar-size-lg: pxToRem(48);
+$avatar-border-radius: $radius-full;
+
+// -----------------------------------------------------------------------------
+// DIVIDER COMPONENT
+// -----------------------------------------------------------------------------
+$divider-color: $border-default;
+$divider-height: $border-width-default;
+
+// -----------------------------------------------------------------------------
+// PRICE COMPONENT
+// -----------------------------------------------------------------------------
+$price-color: $text-brand;
+$price-font-weight: $font-weight-bold;
+$price-font-size: $font-size-base;
+$price-old-color: $text-muted;
+$price-old-font-size: $font-size-sm;
+
+// -----------------------------------------------------------------------------
+// GRID COMPONENT
+// -----------------------------------------------------------------------------
+$grid-gap: space("6-25"); // 25px default grid gap
+$grid-gap-sm: space(5); // 20px smaller grid gap
+
+// -----------------------------------------------------------------------------
+// TOOLS CARD COMPONENT
+// -----------------------------------------------------------------------------
+$tools-card-width: $tools-card-width;
+$tools-card-height: $tools-card-height;
+$tools-card-padding: space(6); // 24px
+$tools-card-gap: space(2); // 8px internal gap
+$tools-row-gap: space(6); // 24px between cards
+$tools-section-offset: space(14); // 56px from section title
+
+// -----------------------------------------------------------------------------
+// KEYWORD BADGE COMPONENT
+// -----------------------------------------------------------------------------
+$keyword-padding-y: space("1-5"); // 6px
+$keyword-padding-x: space(3); // 12px
+$keyword-section-offset: space(10); // 40px from section title
