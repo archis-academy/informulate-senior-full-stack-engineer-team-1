@@ -1,0 +1,193 @@
+// =============================================================================
+// DESIGN SYSTEM - Central Entry Point
+// =============================================================================
+// This file exposes all design tokens as CSS custom properties.
+// Import this file to get access to the complete design system.
+// =============================================================================
+
+@use "primitives" as *;
+@use "tokens" as *;
+@use "components" as *;
+
+// CSS Custom Properties for runtime theming and JS access
+:root {
+    // -------------------------------------------------------------------------
+    // COLOR PRIMITIVES
+    // -------------------------------------------------------------------------
+    // Primary
+    --color-primary-100: #{$primary-100};
+    --color-primary-200: #{$primary-200};
+    --color-primary-500: #{$primary-500};
+    --color-primary-700: #{$primary-700};
+
+    // Secondary
+    --color-secondary-100: #{$secondary-100};
+    --color-secondary-500: #{$secondary-500};
+    --color-secondary-700: #{$secondary-700};
+
+    // Gray Scale
+    --color-gray-white: #{$gray-white};
+    --color-gray-50: #{$gray-50};
+    --color-gray-100: #{$gray-100};
+    --color-gray-300: #{$gray-300};
+    --color-gray-400: #{$gray-400};
+    --color-gray-500: #{$gray-500};
+    --color-gray-700: #{$gray-700};
+    --color-gray-800: #{$gray-800};
+    --color-gray-900: #{$gray-900};
+    --color-gray-black: #{$gray-black};
+
+    // Status
+    --color-success-100: #{$success-100};
+    --color-success-700: #{$success-700};
+    --color-error-100: #{$error-100};
+    --color-error-700: #{$error-700};
+    --color-warning-500: #{$warning-500};
+
+    // -------------------------------------------------------------------------
+    // SEMANTIC TOKENS
+    // -------------------------------------------------------------------------
+    // Text
+    --text-primary: #{$text-primary};
+    --text-secondary: #{$text-secondary};
+    --text-tertiary: #{$text-tertiary};
+    --text-muted: #{$text-muted};
+    --text-inverse: #{$text-inverse};
+    --text-brand: #{$text-brand};
+
+    // Backgrounds
+    --bg-page: #{$bg-page};
+    --bg-surface: #{$bg-surface};
+    --bg-surface-muted: #{$bg-surface-muted};
+    --bg-muted: #{$bg-muted};
+
+    // Borders
+    --border-default: #{$border-default};
+    --border-strong: #{$border-strong};
+
+    // Interactive
+    --interactive-primary: #{$interactive-primary};
+    --interactive-primary-hover: #{$interactive-primary-hover};
+
+    // -------------------------------------------------------------------------
+    // SPACING (4px base unit)
+    // -------------------------------------------------------------------------
+    --space-1: #{space(1)}; // 4px
+    --space-1-5: #{space("1-5")}; // 6px
+    --space-2: #{space(2)}; // 8px
+    --space-2-5: #{space("2-5")}; // 10px
+    --space-3: #{space(3)}; // 12px
+    --space-3-5: #{space("3-5")}; // 14px
+    --space-4: #{space(4)}; // 16px
+    --space-4-5: #{space("4-5")}; // 18px
+    --space-5: #{space(5)}; // 20px
+    --space-6: #{space(6)}; // 24px
+    --space-6-25: #{space("6-25")}; // 25px (Figma specific)
+    --space-7: #{space(7)}; // 28px
+    --space-8: #{space(8)}; // 32px
+    --space-9: #{space(9)}; // 36px
+    --space-10: #{space(10)}; // 40px
+    --space-12: #{space(12)}; // 48px
+    --space-14: #{space(14)}; // 56px
+    --space-15: #{space(15)}; // 60px
+    --space-16: #{space(16)}; // 64px
+    --space-20: #{space(20)}; // 80px
+    --space-25: #{space(25)}; // 100px
+
+    // -------------------------------------------------------------------------
+    // TYPOGRAPHY
+    // -------------------------------------------------------------------------
+    --font-family: #{$font-family-primary};
+
+    --font-size-xs: #{$font-size-xs};
+    --font-size-sm: #{$font-size-sm};
+    --font-size-base: #{$font-size-base};
+    --font-size-lg: #{$font-size-lg};
+    --font-size-xl: #{$font-size-xl};
+    --font-size-2xl: #{$font-size-2xl};
+    --font-size-3xl: #{$font-size-3xl};
+    --font-size-4xl: #{$font-size-4xl};
+    --font-size-5xl: #{$font-size-5xl};
+
+    --font-weight-regular: #{$font-weight-regular};
+    --font-weight-medium: #{$font-weight-medium};
+    --font-weight-semibold: #{$font-weight-semibold};
+    --font-weight-bold: #{$font-weight-bold};
+
+    --line-height-tight: #{$line-height-tight};
+    --line-height-snug: #{$line-height-snug};
+    --line-height-normal: #{$line-height-normal};
+    --line-height-relaxed: #{$line-height-relaxed};
+
+    // -------------------------------------------------------------------------
+    // BORDERS & RADIUS
+    // -------------------------------------------------------------------------
+    --border-width: #{$border-width-default};
+    --radius-none: #{$radius-none};
+    --radius-sm: #{$radius-sm};
+    --radius-md: #{$radius-md};
+    --radius-lg: #{$radius-lg};
+    --radius-xl: #{$radius-xl};
+    --radius-full: #{$radius-full};
+
+    // -------------------------------------------------------------------------
+    // SHADOWS
+    // -------------------------------------------------------------------------
+    --shadow-sm: #{$shadow-card};
+    --shadow-md: #{$shadow-card-hover};
+    --shadow-lg: #{$shadow-category-hover};
+    --shadow-button: #{$shadow-button-hover};
+
+    // -------------------------------------------------------------------------
+    // TRANSITIONS
+    // -------------------------------------------------------------------------
+    --duration-fast: #{$duration-fast};
+    --duration-normal: #{$duration-normal};
+    --duration-slow: #{$duration-slow};
+
+    // -------------------------------------------------------------------------
+    // LAYOUT
+    // -------------------------------------------------------------------------
+    --container-max-width: #{$container-max-width};
+    --nav-height: #{$nav-height};
+
+    // -------------------------------------------------------------------------
+    // COMPONENT TOKENS
+    // -------------------------------------------------------------------------
+    // Card
+    --card-bg: #{$card-bg};
+    --card-border: #{$card-border-color};
+    --card-padding: #{$card-padding};
+    --card-shadow: #{$card-shadow};
+    --card-shadow-hover: #{$card-shadow-hover};
+
+    // Badge
+    --badge-padding-y: #{$badge-padding-y};
+    --badge-padding-x: #{$badge-padding-x};
+    --badge-radius: #{$badge-border-radius};
+    --badge-font-size: #{$badge-font-size};
+
+    // Badge variants
+    --badge-design-bg: #{$badge-design-bg};
+    --badge-design-text: #{$badge-design-text};
+    --badge-dev-bg: #{$badge-development-bg};
+    --badge-dev-text: #{$badge-development-text};
+    --badge-business-bg: #{$badge-business-bg};
+    --badge-business-text: #{$badge-business-text};
+    --badge-software-bg: #{$badge-software-bg};
+    --badge-software-text: #{$badge-software-text};
+    --badge-neutral-bg: #{$badge-neutral-bg};
+    --badge-neutral-text: #{$badge-neutral-text};
+
+    // Button
+    --btn-primary-bg: #{$btn-primary-bg};
+    --btn-primary-text: #{$btn-primary-text};
+    --btn-primary-hover: #{$btn-primary-hover-bg};
+
+    // Rating
+    --rating-star-color: #{$rating-star-color};
+    --rating-gap: #{$rating-gap};
+
+    // Price
+    --price-color: #{$price-color};
+}

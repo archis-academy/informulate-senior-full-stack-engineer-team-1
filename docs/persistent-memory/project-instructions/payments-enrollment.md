@@ -21,4 +21,3 @@ updated: '2025-12-11T00:00:00.000Z'
 - Maintain transactional integrity between orders and enrollments.
 - Ensure atomic operations when processing payments and enrollments.
 
-

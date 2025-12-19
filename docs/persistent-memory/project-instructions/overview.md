@@ -43,4 +43,3 @@ AI integration enhances learning by providing:
 
 The backend uses a modular architecture with controllers, services, and models for clear separation of concerns, ensuring secure authentication and authorization, maintainable type-safe code, scalable production-ready deployment with containerization, and robust logging, monitoring, and AI service handling.
 
-

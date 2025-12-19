@@ -1,96 +1,102 @@
-@use "@styles/_functions.scss" as *;
+// =============================================================================
+// VARIABLES - Re-exports for Backward Compatibility
+// =============================================================================
+// This file re-exports all design system tokens for backward compatibility
+// with existing components. New components should import from specific files.
+// =============================================================================
 
-/*
- * Colors
- *
- * configure the colors required for the project here
- * */
-$white: #ffffff;
-$black: #000000;
+// Forward all design system tokens
+@forward "functions";
+@forward "primitives";
+@forward "tokens";
+@forward "components";
+@forward "mixins";
+@forward "mq-config";
 
-$slate-50: #f8fafc;
-$slate-200: #e2e8f0;
-$slate-300: #cbd5e1;
-$slate-500: #64748b;
-$slate-900: #0f172a;
+// =============================================================================
+// LEGACY ALIASES
+// =============================================================================
+// These aliases map old variable names to new design system tokens.
+// Gradually migrate components away from these and remove when done.
+// =============================================================================
 
-$indigo-100: #eef2ff;
-$indigo-600: #4f46e5;
+@use "primitives" as *;
+@use "tokens" as *;
+@use "components" as *;
 
-$red-500: #ef4444;
-$amber-400: #fbbf24;
+// Legacy color aliases (from old slate/indigo palette)
+$white: $gray-white;
+$black: $gray-black;
 
-$radius-pill: 999px;
+$slate-50: $gray-50;
+$slate-200: $gray-100;
+$slate-300: $gray-300;
+$slate-500: $gray-500;
+$slate-900: $gray-900;
 
-$shadow-card: 0 6px 20px rgba(0, 0, 0, 0.06);
-$shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
+$indigo-100: $secondary-100;
+$indigo-600: $secondary-500;
 
-$border-1: 1px;
+$red-500: $primary-500; // Note: was error red, now maps to primary orange
+$amber-400: $warning-500;
+
+// Legacy spacing aliases - mapped to new space() values
+// Old numeric keys → new 4px-base keys
+$space-4: space(1);       // 4px → space(1)
+$space-6: space("1-5");   // 6px → space(1-5)
+$space-8: space(2);       // 8px → space(2)
+$space-10: space("2-5");  // 10px → space(2-5)
+$space-12: space(3);      // 12px → space(3)
+$space-14: space("3-5");  // 14px → space(3-5)
+$space-18: space("4-5");  // 18px → space(4-5)
+$space-20: space(5);      // 20px → space(5)
+$space-24: space(6);      // 24px → space(6)
+$space-28: space(7);      // 28px → space(7)
+$space-32: space(8);      // 32px → space(8)
+$space-48: space(12);     // 48px → space(12)
+$space-64: space(16);     // 64px → space(16)
+
+// Legacy typography
+$primary-font: $font-family-primary;
+$font-base: $font-size-base;
+$font-2xl: $font-size-3xl;
+$font-base-1rem: $font-size-base;
+$font-sm: $font-size-sm;
+$font-xs: $font-size-xs;
+$line-height-145: $line-height-normal;
+$font-regular: $font-weight-regular;
+$font-semibold: $font-weight-semibold;
+$font-bold: $font-weight-bold;
+
+// Legacy effects
+$radius-pill: $radius-full;
+$radius-none: $radius-none;
+$shadow-card: $elevation-sm;
+$shadow-card-hover: $elevation-md;
+
+// Legacy sizes
+$border-1: $border-width-default;
 $ratio-62: 62%;
-
-/*
- * Typography and font sizes
- *
- * configure the typography and font sizes required for the project here
- * */
-
-// font familly
-$primary-font: "Inter", sans-serif;
-
-//font-sizes
-$font-base: pxToRem(16);
-
-$font-2xl: pxToRem(32);
-$font-base-1rem: pxToRem(16);
-$font-sm: pxToRem(12.8);
-$font-xs: pxToRem(11.2);
-
-$line-height-145: 1.45;
 $size-2-9em: 2.9em;
-$letter-spacing-006em: 0.06em;
+$letter-spacing-006em: $letter-spacing-wide;
 
-//font-weight
-$font-regular: 400;
+// Legacy breakpoints
+$desktop-xxl: $breakpoint-desktop-xxl;
+$desktop-xl: $breakpoint-desktop-xl;
+$desktop-l: $breakpoint-desktop-lg;
+$desktop-m: $breakpoint-desktop-md;
+$desktop-s: $breakpoint-desktop-sm;
+$tablet-l: $breakpoint-tablet-lg;
+$tablet-m: $breakpoint-tablet-md;
+$tablet-s: $breakpoint-tablet-sm;
+$mobile-l: $breakpoint-mobile-lg;
+$mobile-m: $breakpoint-mobile-md;
+$mobile-s: $breakpoint-mobile-xs;
 
-$font-semibold: 600;
-$font-bold: 700;
-
-/*
- * Screen Breakpoints
- * */
-
-$desktop-xxl: pxToRem(1920);
-$desktop-xl: pxToRem(1600);
-$desktop-l: pxToRem(1440);
-$desktop-m: pxToRem(1200);
-$desktop-s: pxToRem(1024);
-$tablet-l: pxToRem(992);
-$tablet-m: pxToRem(768);
-$tablet-s: pxToRem(640);
-$mobile-l: pxToRem(576);
-$mobile-m: pxToRem(480);
-$mobile-s: pxToRem(320);
-
-$space-48: pxToRem(48);
-$space-24: pxToRem(24);
-$space-64: pxToRem(64);
-$space-32: pxToRem(32);
-$space-28: pxToRem(28);
-$space-20: pxToRem(20);
-$space-8: pxToRem(8);
-$space-6: pxToRem(6);
-$space-4: pxToRem(4);
-$space-12: pxToRem(12);
-$space-18: pxToRem(18);
-
-$badge-pad-y: 0.22rem;
-$badge-pad-x: 0.55rem;
-
-$radius-none: 0;
-
-$duration-280: 0.28s;
-$duration-400: 0.4s;
-
+// Legacy misc
+$badge-pad-y: $badge-padding-y;
+$badge-pad-x: $badge-padding-x;
+$duration-280: $duration-normal;
+$duration-400: $duration-slow;
 $scale-105: 1.05;
-
 $shift-up-6: pxToRem(-6);

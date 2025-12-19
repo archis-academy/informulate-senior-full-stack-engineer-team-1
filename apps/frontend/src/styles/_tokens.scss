@@ -1,0 +1,124 @@
+// =============================================================================
+// TOKENS - Semantic Design Tokens
+// =============================================================================
+// These tokens describe PURPOSE, not appearance.
+// Use these in components for maintainable, themeable code.
+// =============================================================================
+
+@use "primitives" as *;
+
+// -----------------------------------------------------------------------------
+// TEXT COLORS
+// -----------------------------------------------------------------------------
+$text-primary: $gray-900; // Headings, important text
+$text-secondary: $gray-700; // Rating text, supporting content
+$text-tertiary: $gray-500; // Student count, metadata
+$text-muted: $gray-400; // Disabled, placeholder text
+$text-inverse: $gray-white; // Text on dark backgrounds
+$text-brand: $primary-500; // Prices, accent text, links
+$text-brand-dark: $primary-700; // Darker brand text
+
+// -----------------------------------------------------------------------------
+// BACKGROUND COLORS
+// -----------------------------------------------------------------------------
+$bg-page: $gray-white; // Main page background
+$bg-surface: $gray-white; // Cards, modals, elevated surfaces
+$bg-surface-muted: $gray-50; // Subtle backgrounds, keyword badges
+$bg-muted: $gray-100; // Disabled state backgrounds
+
+// -----------------------------------------------------------------------------
+// BORDER COLORS
+// -----------------------------------------------------------------------------
+$border-default: $gray-100; // Standard borders, dividers
+$border-strong: $gray-300; // Emphasized borders
+$border-muted: $gray-50; // Subtle borders
+
+// -----------------------------------------------------------------------------
+// INTERACTIVE COLORS
+// -----------------------------------------------------------------------------
+$interactive-primary: $primary-500;
+$interactive-primary-hover: $primary-700;
+$interactive-primary-active: $primary-700;
+
+$interactive-secondary: $secondary-500;
+$interactive-secondary-hover: $secondary-700;
+
+// -----------------------------------------------------------------------------
+// STATUS COLORS - Semantic pairs (background + text)
+// -----------------------------------------------------------------------------
+// Design category
+$status-design-bg: $primary-100;
+$status-design-text: $primary-700;
+
+// Development & Marketing category
+$status-dev-bg: $secondary-100;
+$status-dev-text: $secondary-700;
+
+// Business category
+$status-success-bg: $success-100;
+$status-success-text: $success-700;
+
+// IT & Software category
+$status-error-bg: $error-100;
+$status-error-text: $error-700;
+
+// Warning states
+$status-warning: $warning-500;
+
+// -----------------------------------------------------------------------------
+// ICON COLORS
+// -----------------------------------------------------------------------------
+$icon-default: $gray-500;
+$icon-muted: $gray-400;
+$icon-brand: $primary-500;
+$icon-star: $warning-500; // Star ratings
+
+// -----------------------------------------------------------------------------
+// SHADOW TOKENS
+// -----------------------------------------------------------------------------
+$elevation-sm: $shadow-card;
+$elevation-md: $shadow-card-hover;
+$elevation-lg: $shadow-category-hover;
+$elevation-button: $shadow-button-hover;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY TOKENS
+// -----------------------------------------------------------------------------
+// Heading styles
+$heading-font-family: $font-family-primary;
+$heading-font-weight: $font-weight-semibold;
+$heading-line-height: $line-height-tight;
+$heading-letter-spacing: $letter-spacing-tight;
+
+// Body styles
+$body-font-family: $font-family-primary;
+$body-font-weight: $font-weight-regular;
+$body-line-height: $line-height-relaxed;
+$body-letter-spacing: $letter-spacing-normal;
+
+// Label/Caption styles
+$label-font-weight: $font-weight-medium;
+$label-letter-spacing: $letter-spacing-wide;
+
+// -----------------------------------------------------------------------------
+// TRANSITION TOKENS
+// -----------------------------------------------------------------------------
+$transition-fast: $duration-fast $easing-default;
+$transition-normal: $duration-normal $easing-default;
+$transition-slow: $duration-slow $easing-default;
+
+$transition-transform: transform $duration-normal $easing-default;
+$transition-shadow: box-shadow $duration-normal $easing-default;
+$transition-color: color $duration-fast $easing-default;
+$transition-bg: background-color $duration-fast $easing-default;
+
+// Combined transitions for interactive elements
+$transition-interactive: $transition-transform, $transition-shadow;
+$transition-button: $transition-bg, $transition-shadow, $transition-transform;
+
+// -----------------------------------------------------------------------------
+// FOCUS STATES
+// -----------------------------------------------------------------------------
+$focus-ring-width: 2px;
+$focus-ring-offset: 2px;
+$focus-ring-color: $primary-500;

@@ -21,4 +21,3 @@ updated: '2025-12-11T00:00:00.000Z'
 - Generate lecture summaries and exercises automatically via AI.
 - Use vector embeddings for semantic search and contextual retrieval.
 
-

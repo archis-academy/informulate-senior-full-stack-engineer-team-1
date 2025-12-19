@@ -1,3 +1,5 @@
+@use "@styles/primitives" as *;
+
 :root {
   --color-gray-500: #6b7280;
   --color-gray-900: #111827;
@@ -28,7 +30,7 @@
 
 .description {
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: $line-height-1-571;
   color: var(--color-gray-500);
 }
 

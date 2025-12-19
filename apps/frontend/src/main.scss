@@ -1,1 +1,13 @@
+// =============================================================================
+// MAIN STYLESHEET - Application Entry Point
+// =============================================================================
+
+// Reset browser defaults
 @use "./styles/reset" as *;
+
+// Load the complete design system (exposes CSS custom properties)
+@use "./styles/design-system";
+
+// Optional: Load utility classes globally
+// Uncomment the line below if you want utilities available everywhere
+// @use "./styles/utilities";

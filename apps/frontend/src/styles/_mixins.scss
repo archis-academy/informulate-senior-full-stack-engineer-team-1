@@ -1,0 +1,357 @@
+// =============================================================================
+// MIXINS - Reusable SCSS Patterns
+// =============================================================================
+// Use these mixins to apply consistent patterns across components.
+// =============================================================================
+
+@use "sass:map";
+@use "primitives" as *;
+@use "tokens" as *;
+@use "mq-config" as mq;
+
+// -----------------------------------------------------------------------------
+// CARD PATTERNS
+// -----------------------------------------------------------------------------
+/// Base card styling
+@mixin card-base {
+    background-color: $bg-surface;
+    border: $border-width-default solid $border-default;
+    border-radius: $radius-none;
+    overflow: hidden;
+    box-shadow: $elevation-sm;
+}
+
+/// Card hover effect
+@mixin card-hover {
+    transition: $transition-interactive;
+
+    &:hover {
+        transform: translateY(pxToRem(-6));
+        box-shadow: $elevation-md;
+    }
+}
+
+/// Card with hover effect combined
+@mixin card {
+    @include card-base;
+    @include card-hover;
+}
+
+// -----------------------------------------------------------------------------
+// BADGE PATTERNS
+// -----------------------------------------------------------------------------
+/// Base badge styling
+@mixin badge-base {
+    display: inline-flex;
+    align-items: center;
+    padding: space("1") space("1-5");
+    font-size: $font-size-xs;
+    font-weight: $label-font-weight;
+    line-height: $line-height-1-2;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/// Badge with specific colors
+/// @param {Color} $bg - Background color
+/// @param {Color} $text - Text color
+@mixin badge-variant($bg, $text) {
+    background-color: $bg;
+    color: $text;
+}
+
+/// Pre-defined badge variants
+@mixin badge-design {
+    @include badge-base;
+    @include badge-variant($status-design-bg, $status-design-text);
+}
+
+@mixin badge-development {
+    @include badge-base;
+    @include badge-variant($status-dev-bg, $status-dev-text);
+}
+
+@mixin badge-business {
+    @include badge-base;
+    @include badge-variant($status-success-bg, $status-success-text);
+}
+
+@mixin badge-software {
+    @include badge-base;
+    @include badge-variant($status-error-bg, $status-error-text);
+}
+
+@mixin badge-neutral {
+    @include badge-base;
+    @include badge-variant($bg-surface-muted, $text-secondary);
+}
+
+// -----------------------------------------------------------------------------
+// BUTTON PATTERNS
+// -----------------------------------------------------------------------------
+/// Base button styling
+@mixin button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: space(2);
+    padding: space(3) space(6);
+    border-radius: $radius-md;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    font-family: $font-family-primary;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $transition-button;
+    border: none;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+/// Primary button variant
+@mixin button-primary {
+    @include button-base;
+    background-color: $interactive-primary;
+    color: $text-inverse;
+
+    &:hover:not(:disabled) {
+        background-color: $interactive-primary-hover;
+        box-shadow: $elevation-button;
+    }
+}
+
+/// Secondary/outline button variant
+@mixin button-secondary {
+    @include button-base;
+    background-color: transparent;
+    color: $interactive-primary;
+    border: $border-width-default solid $interactive-primary;
+
+    &:hover:not(:disabled) {
+        background-color: $primary-100;
+    }
+}
+
+/// Ghost button variant
+@mixin button-ghost {
+    @include button-base;
+    background-color: transparent;
+    color: $text-secondary;
+
+    &:hover:not(:disabled) {
+        background-color: $bg-surface-muted;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY PATTERNS
+// -----------------------------------------------------------------------------
+/// Heading styles
+/// @param {Number} $level - Heading level (1-6)
+@mixin heading($level: 1) {
+    font-family: $heading-font-family;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+    letter-spacing: $heading-letter-spacing;
+    color: $text-primary;
+
+    @if $level ==1 {
+        font-size: $font-size-5xl;
+    }
+
+    @else if $level ==2 {
+        font-size: $font-size-4xl;
+    }
+
+    @else if $level ==3 {
+        font-size: $font-size-3xl;
+    }
+
+    @else if $level ==4 {
+        font-size: $font-size-2xl;
+    }
+
+    @else if $level ==5 {
+        font-size: $font-size-xl;
+    }
+
+    @else {
+        font-size: $font-size-lg;
+    }
+}
+
+/// Body text styles
+/// @param {String} $variant - 'default', 'small', 'large', or 'muted'
+@mixin body-text($variant: "default") {
+    font-family: $body-font-family;
+    font-weight: $body-font-weight;
+    line-height: $body-line-height;
+    letter-spacing: $body-letter-spacing;
+
+    @if $variant =="small" {
+        font-size: $font-size-sm;
+        color: $text-tertiary;
+    }
+
+    @else if $variant =="large" {
+        font-size: $font-size-lg;
+        color: $text-primary;
+    }
+
+    @else if $variant =="muted" {
+        font-size: $font-size-base;
+        color: $text-muted;
+    }
+
+    @else {
+        font-size: $font-size-base;
+        color: $text-primary;
+    }
+}
+
+/// Label/caption styles
+@mixin label {
+    font-size: $font-size-xs;
+    font-weight: $label-font-weight;
+    letter-spacing: $label-letter-spacing;
+    text-transform: uppercase;
+}
+
+// -----------------------------------------------------------------------------
+// TEXT TRUNCATION
+// -----------------------------------------------------------------------------
+/// Single line truncation with ellipsis
+@mixin truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/// Multi-line truncation
+/// @param {Number} $lines - Number of lines to show
+@mixin line-clamp($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// -----------------------------------------------------------------------------
+// INPUT PATTERNS
+// -----------------------------------------------------------------------------
+/// Base input styling
+@mixin input-base {
+    padding: space(3) space(4);
+    border: $border-width-default solid $border-default;
+    border-radius: $radius-md;
+    background-color: $bg-surface;
+    font-size: $font-size-lg;
+    font-family: $font-family-primary;
+    color: $text-primary;
+    transition: $transition-normal;
+
+    &::placeholder {
+        color: $text-muted;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $focus-ring-color;
+        box-shadow: 0 0 0 $focus-ring-offset $focus-ring-color;
+    }
+
+    &:disabled {
+        background-color: $bg-muted;
+        cursor: not-allowed;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// LAYOUT PATTERNS
+// -----------------------------------------------------------------------------
+/// Flex center (both axes)
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/// Flex between (space-between with center align)
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/// Stack layout (vertical flex)
+/// @param {Length} $gap - Gap between items
+@mixin stack($gap: space(4)) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+/// Cluster layout (horizontal flex with wrap)
+/// @param {Length} $gap - Gap between items
+@mixin cluster($gap: space(4)) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+}
+
+/// Container with max-width
+@mixin container {
+    width: 100%;
+    max-width: $container-max-width;
+    margin-inline: auto;
+    padding-inline: space(6);
+
+    @include mq.mq($from: "desktop-md") {
+        padding-inline: space(12);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// VISUAL EFFECTS
+// -----------------------------------------------------------------------------
+/// Focus ring for accessibility
+@mixin focus-ring {
+    &:focus-visible {
+        outline: $focus-ring-width solid $focus-ring-color;
+        outline-offset: $focus-ring-offset;
+    }
+}
+
+/// Inner shadow divider (Figma pattern)
+@mixin divider-inner {
+    box-shadow: $shadow-inner-line;
+}
+
+/// Smooth image hover zoom
+@mixin image-hover-zoom($scale: 1.05) {
+    overflow: hidden;
+
+    img {
+        transition: transform $duration-slow $easing-default;
+    }
+
+    &:hover img {
+        transform: scale($scale);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// TRANSITIONS
+// -----------------------------------------------------------------------------
+/// Standard interactive transition
+@mixin transition-interactive {
+    transition: $transition-interactive;
+}
+
+/// Color transition
+@mixin transition-color {
+    transition: $transition-color, $transition-bg;
+}
